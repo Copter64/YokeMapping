@@ -1,0 +1,13 @@
+# Example YokeMapping config. Copy to `yokemapping.toml` (gitignored) and edit,
+# or pass a path with `yokemapping --config path/to/file.toml`.
+# Environment variables (YOKEMAPPING_*) and `.env` override values set here.
+
+log_level = "INFO"
+# log_dir = "logs"            # omit to log to the console only
+
+simconnect_host = "localhost"
+simconnect_port = 500
+
+steamvr_camera_index = 0
+
+calibration_profile_dir = "calibration_profiles"

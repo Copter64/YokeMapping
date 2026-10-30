@@ -1,0 +1,58 @@
+[project]
+name = "yokemapping"
+version = "0.1.0"
+description = "Map a real-world flight yoke onto the virtual yoke in MSFS2024 via a Steam Frame VR headset."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy>=2.5.4",
+    "openvr>=2.12.1401",
+    "pillow>=13.0.0",
+    "python-dotenv>=1.0",
+]
+
+[project.scripts]
+yokemapping = "yokemapping.app:main"
+yokemapping-steamvr-probe = "yokemapping.probes.steamvr_camera:main"
+yokemapping-pose-monitor = "yokemapping.probes.pose_monitor:main"
+yokemapping-capture = "yokemapping.registration.cli:main"
+yokemapping-overlay = "yokemapping.overlay.cli:main"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.11",
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/yokemapping"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+mypy_path = "src"
+packages = ["yokemapping"]
+
+[[tool.mypy.overrides]]
+module = ["openvr", "openvr.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -m 'not hardware'"
+markers = [
+    "hardware: requires real hardware/software (Steam Frame + SteamVR, MSFS2024). Run with: uv run pytest -m hardware",
+]

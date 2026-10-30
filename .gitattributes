@@ -1,0 +1,20 @@
+# Normalize line endings for most text files; keep Windows-native line
+# endings for scripts that expect them.
+* text=auto eol=lf
+
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Explicit binary types (avoid accidental text-mode corruption/diffing).
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.onnx binary
+*.pt binary
+*.pth binary
+*.engine binary
+*.mp4 binary
+*.avi binary

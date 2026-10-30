@@ -1,0 +1,107 @@
+# ===== Environment & secrets =====
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+secrets.*
+config.local.*
+yokemapping.toml
+**/local.settings.json
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Packaging
+*.whl
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+
+# Type checking / linting caches
+.mypy_cache/
+.pyre/
+.ruff_cache/
+.dmypy.json
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ===== OS =====
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS (in case of cross-platform dev/testing)
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ===== Editors / IDEs =====
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== Logs & runtime data =====
+*.log
+logs/
+*.tmp
+*.bak
+
+# ===== Project-specific: SteamVR / OpenVR =====
+# Local SteamVR/OpenVR runtime or app diagnostic logs captured for debugging.
+steamvr_logs/
+
+# ===== Project-specific: captured calibration & camera data =====
+# Calibration profiles and raw captures are hardware/user-specific and are
+# not meant to be committed by default (see docs/ROADMAP.md Phase 6).
+data/
+calibration_profiles/
+captures/
+*.mp4
+*.avi
+# Allow explicitly-checked-in example/sample media.
+!examples/**/*.mp4
+!examples/**/*.avi
+
+# ===== ML model weights =====
+# Trained/exported model artifacts are typically large binaries; track them
+# with Git LFS (or an external model store) instead of committing directly.
+*.onnx
+*.pt
+*.pth
+*.engine
+models/weights/
